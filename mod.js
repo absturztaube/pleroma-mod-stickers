@@ -96,7 +96,7 @@ PleromaStickers.prototype.toggleSelector = function() {
                 }
             }
         }
-        xmlhttp.open('GET', window.__pleromaModLoader.config.modDirectory + '/' + self.config.selectHtml, true);
+        xmlhttp.open('GET', window.__pleromaModLoader.config.modDirectory + self.config.selectHtml, true);
         xmlhttp.send();
         self.open = true;
     }
