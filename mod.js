@@ -7,36 +7,12 @@ function PleromaStickers (element) {
     this.config = {
         'instance': 'https://fedi.absturztau.be',
         'stickersDir': 'stickers/',
-        'packs': [
-            'puniko',
-            'puniko_anim',
-            'muki',
-            'mashiro',
-            'animalears',
-            'animalears2',
-            'hatsune_miku_all_together',
-            'hatsune_miku_snow_miku_collection',
-            'miko_san_of_fox',
-            'mochi',
-            'mochi2',
-            'mochi3',
-            'muki_shy',
-            'nekomimi_paradise_1',
-            'nekomimi_paradise_2',
-            'nekomiya_hinata',
-            'nep_nep',
-            'nyanko',
-            'puniko2',
-            'puniko3',
-            'puniloli',
-            'puni_never_smile',
-            'shinigami_cat',
-            'shinigami_cat2',
-            'shiro_white_neko'
-        ],
+        'packs': [],
         'stickerSize': 250,
         'selectHtml': 'pleroma-mod-stickers/sticker-select.html',
     };
+
+    this.loadConfig();
 
     this.open = false;
 
@@ -46,6 +22,17 @@ function PleromaStickers (element) {
     this.createTrigger();
     this.createContainer();
 }
+
+PleromaStickers.prototype.loadConfig = function () {
+    var self = this;
+    var configUrl = window.__pleromaModLoader.config.modDirectory
+        + "pleroma-mod-stickers/config.json";
+    window.__pleromaModLoader.loadJSON("GET", configUrl, function (response) {
+        for ( var key in response.json ) {
+            self.config[key] = response.json[key];
+        }
+    }, false);
+};
 
 PleromaStickers.prototype.createContainer = function() {
     var self = this;
