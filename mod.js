@@ -113,6 +113,7 @@ PleromaStickers.prototype.addTab = function (container, pack) {
     tabElement.style.backgroundImage
         = 'url("'
         + window.__pleromaModLoader.config.modDirectory
+        + 'pleroma-mod-stickers/'
         + self.config.stickersDir
         + pack
         + '/tab_on@2x.png")';
@@ -170,6 +171,7 @@ PleromaStickers.prototype.getStickers = function(pack) {
                     stickerTile.setAttribute(
                         'data-sticker',
                         window.__pleromaModLoader.config.modDirectory
+                            + 'pleroma-mod-stickers/'
                             + self.config.stickersDir 
                             + pack
                             + '/'
@@ -178,6 +180,7 @@ PleromaStickers.prototype.getStickers = function(pack) {
                     var previewImage 
                         = 'url("'
                         + window.__pleromaModLoader.config.modDirectory
+                        + 'pleroma-mod-stickers/'
                         + self.config.stickersDir 
                         + pack 
                         + '/' 
